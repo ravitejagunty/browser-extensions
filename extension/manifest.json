@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Flight Search Assistant",
+    "version": "1.0",
+    "description": "Find best flights and explore cities with AI chat.",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup/build/index.html",
+      "default_icon": {
+        "16": "icons/airplane.png",
+        "48": "icons/airplane.png",
+        "128": "icons/airplane.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.google.com/travel/flights/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
